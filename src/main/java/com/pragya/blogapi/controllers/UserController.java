@@ -1,5 +1,6 @@
 package com.pragya.blogapi.controllers;
 
+import com.pragya.blogapi.entities.User;
 import com.pragya.blogapi.payloads.ApiResponse;
 import com.pragya.blogapi.payloads.UserDto;
 import com.pragya.blogapi.services.UserService;
@@ -53,7 +54,7 @@ public class UserController {
 
 
     @GetMapping("/{userId}")
-    public ResponseEntity<UserDto> getSingleUsers(@PathVariable Integer userId){
+    public ResponseEntity<User> getSingleUsers(@PathVariable Integer userId){
         return ResponseEntity.ok(this.userService.getUserById(userId));
     }
 

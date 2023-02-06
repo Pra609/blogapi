@@ -48,10 +48,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserById(Integer userId) {
-        User user=this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User","id",userId));
+    public User getUserById(Integer userId) {
+        User user=this.userRepo.findById(userId).get();
+                //this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User","id",userId));
 
-        return this.modelMapper.map(user,UserDto.class);
+       // return this.modelMapper.map(user,UserDto.class);
+        return  user;
     }
 
     @Override
